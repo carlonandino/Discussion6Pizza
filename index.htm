@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      Discussion 6
+
+      Author: Carlo Nandino 
+      Date: 02/13/2023
+
+      Filename: index.html
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>1SizePizza</title>
+   <link rel="stylesheet" href="styles.css" />
+   <script src="modernizr.custom.05819.js"></script>
+</head>
+
+<body>
+   <header>
+      <h1>
+         1 Size Pizza Co.
+      </h1>
+   </header>
+
+   <article>
+      <h2>Build A Pizza</h2>
+      <form>
+         <h2>Crust and Toppings</h2>
+         <input type="checkbox" id="item1" value="10" />
+         <label for="item1">Hand Tossed ($10)</label>
+         <input type="checkbox" id="item2" value="10" />
+         <label for="item2">Thin Crust ($10)</label>
+         <input type="checkbox" id="item3" value="13" />
+         <label for="item3">Stuffed Crust ($13)</label>
+         <input type="checkbox" id="item4" value="13" />
+         <label for="item4">Pepperoni ($1.00)</label>
+         <input type="checkbox" id="item5" value="1" />
+         <label for="item5">Sausage ($1.00)</label>
+         <input type="checkbox" id="item6" value="1" />
+         <label for="item6">Bacon ($1.00)</label>
+         <input type="checkbox" id="item7" value="1" />
+         <label for="item7">Ham ($1.00)</label>
+         <input type="checkbox" id="item8" value="1" />
+         <label for="item8">Mushroom ($1.00)</label>
+         <input type="checkbox" id="item9" value="1" />
+         <label for="item9">Pineapple ($1.00)</label>
+         <input type="checkbox" id="item10" value="1" />
+         <label for="item10">Jalapeno Peppers ($1.00)</label>
+         <input type="checkbox" id="item11" value="1" />
+         <label for="item11">Green Bell Peppers ($1.00)</label>
+         <input type="text" id="nameInput" name="name" placeholder="Ex: John Smith" />
+         <label for="nameInput">Who's Ordering?</label>
+         <input type="text" id="paymentInput" name="name" placeholder="Type Cash or Card" />
+         <label for="paymentInput">Payment Type</label>
+         <input type="submit" id="submit" value="Submit" />
+      </form>
+   </article>
+   <script>
+      function calcTotal() {
+         let nameInput = document.querySelector("#nameInput");
+         var itemTotal = 0;
+         var item1 = document.getElementById("item1");
+         var item2 = document.getElementById("item2");
+         var item3 = document.getElementById("item3");
+         var item4 = document.getElementById("item4");
+         var item5 = document.getElementById("item5");
+         var item6 = document.getElementById("item6");
+         var item7 = document.getElementById("item7");
+         var item8 = document.getElementById("item8");
+         var item9 = document.getElementById("item9");
+         var item10 = document.getElementById("item10");
+         var item11 = document.getElementById("item11");
+         (item1.checked) ? (itemTotal += 10) : (itemTotal += 0);
+         (item2.checked) ? (itemTotal += 10) : (itemTotal += 0);
+         (item3.checked) ? (itemTotal += 13) : (itemTotal += 0);
+         (item4.checked) ? (itemTotal += 1) : (itemTotal += 0);
+         (item5.checked) ? (itemTotal += 1) : (itemTotal += 0);
+         (item6.checked) ? (itemTotal += 1) : (itemTotal += 0);
+         (item7.checked) ? (itemTotal += 1) : (itemTotal += 0);
+         (item8.checked) ? (itemTotal += 1) : (itemTotal += 0);
+         (item9.checked) ? (itemTotal += 1) : (itemTotal += 0);
+         (item10.checked) ? (itemTotal += 1) : (itemTotal += 0);
+         (item11.checked) ? (itemTotal += 1) : (itemTotal += 0);
+         var salesTaxRate = 0.07;
+	 itemTotal *= 100;
+         var orderTotal = (itemTotal + (itemTotal * salesTaxRate)) /100;
+         alert(nameInput.value + ": " + "Your order total is $" + orderTotal);
+      }
+      document.getElementById("submit").
+         addEventListener("click", calcTotal, false);
+   </script>
+</body>
+</html>
